@@ -52,49 +52,49 @@ const getData = () => {
                     body.appendChild(pName);
                     body.appendChild(pWebsite);
                 }
-                preloading = false;
-                hidePreloader();
 
-                console.log(data);
-            })
-            .catch(error => {
-                console.log(error);
-            });
+            hidePreloader();
 
+            console.log(data);
+        })
+        .catch(error => {
+            console.log(error);
+        });
     }
+}
 
-    const scrollToEndOfPage = () => {
+const scrollToEndOfPage = () => {
 
-        let d = document.documentElement;
+    let d = document.documentElement;
 
-        // height of an element's content, including content not visible on the screen
-        let scrollHeight = d.scrollHeight;
+    // height of an element's content, including content not visible on the screen
+    let scrollHeight = d.scrollHeight;
 
-        //number of pixels that an element's content is scrolled vertically
-        let scrollTop = d.scrollTop;
+    //number of pixels that an element's content is scrolled vertically
+    let scrollTop = d.scrollTop;
 
-        //inner height of an element in pixels
-        let clientHeight = d.clientHeight;
-
-
-        let sumScrollTopClientHeight = Math.ceil(scrollTop + clientHeight);
+    //inner height of an element in pixels
+    let clientHeight = d.clientHeight;
 
 
-        console.log(`scrollHeight: ${scrollHeight}`);
-        console.log(`sumScrollTopClientHeight: ${sumScrollTopClientHeight}`);
-        console.log(`scrollTop: ${scrollTop}`);
-        console.log(`clientHeight: ${clientHeight}`);
-        console.log(`==========================`);
+    let sumScrollTopClientHeight = Math.ceil(scrollTop + clientHeight);
 
 
-        if (sumScrollTopClientHeight >= scrollHeight) {
+    console.log(`scrollHeight: ${scrollHeight}`);
+    console.log(`sumScrollTopClientHeight: ${sumScrollTopClientHeight}`);
+    console.log(`scrollTop: ${scrollTop}`);
+    console.log(`clientHeight: ${clientHeight}`);
+    console.log(`==========================`);
 
-            endOfThePage += 1;
 
-            console.log(`Scrolled to the end of page: ${endOfThePage}`);
+    if (sumScrollTopClientHeight >= scrollHeight) {
 
-            getData();
-        }
+        endOfThePage += 1;
+
+        console.log(`Scrolled to the end of page: ${endOfThePage}`);
+
+        getData();
+
     }
 
 }
